@@ -20,6 +20,11 @@ The Unified Locational Differential Privacy Framework is a comprehensive tool de
 # Clone the repository
 git clone https://github.com/Privacy-Engineering-CMU/location-dp-framework.git
 
+#Setup environment
+conda create -n location-dp-framework python=3.10
+conda activate location-dp-framework
+cd MVP
+
 # Install the required dependencies
 pip install -r requirements.txt
 ```

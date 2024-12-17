@@ -10,7 +10,7 @@ from streamlit_folium import folium_static
 import folium
 import streamlit as st
 
-@st.cache(hash_funcs={folium.folium.Map: lambda _: None}, allow_output_mutation=True)
+@st.cache_resource
 def make_map(df, diff_steps, display_all=True):
 	if display_all:
 		main_map = folium.Map(location=(40.4432, -79.9428), zoom_start=14)
@@ -159,7 +159,7 @@ def app():
 				local_dp_obj = ExponentialMechanism(epsilon, max_income=60000)
 				local_dp_path = "em"
 			else:
-				local_dp_obj = GaussianMechanism(epsilon, delta=delta, max_income=max_income)
+				local_dp_obj = GaussianMechanism(epsilon, delta=delta, max_income=60000)
 				local_dp_path = "gm"
 			outputs = []
 			for data in dataset:
@@ -214,7 +214,7 @@ def app():
 				local_dp_obj = ExponentialMechanism(epsilon, max_income=60000)
 				local_dp_path = "em"
 			else:
-				local_dp_obj = GaussianMechanism(epsilon, delta=delta, max_income=max_income)
+				local_dp_obj = GaussianMechanism(epsilon, delta=delta, max_income=60000)
 				local_dp_path = "gm"
 
 			output = run_through_dataset(data, data_type, local_dp_obj, "./output/"+data_type+"/"+local_dp_path+"/")
